@@ -3,14 +3,15 @@ body {
     padding:0;
     font-family: verdana;
 }
+
 body:before {
         content: "";
         position: fixed;
         height: 100%; width: 100%;
-        background: url('house.jpg');
+        background: url('Image/house.jpg');
         background-size: cover; 
         z-index: -1;
-        -webkit-opacity :0.5;
+        -webkit-opacity :0.6;
     }
 
 
@@ -19,83 +20,71 @@ body:before {
 /*DEBUT HEADER1-2*/
 /****************************************************/
 
-.connexion{
-    float: right;
-    text-align: right;
-    padding: 3%;
-    font-size: 15px;
-}
-
-h1{
-	margin: 0;
-}
-
-a{
-	text-decoration: none;
-	color: black;
-}
-
 header
 {
 	background-color: rgba(0, 0, 0, 0.5);
+	height: 7.3vw;
 }
 
 #header2{
 	display: flex;
 	justify-content: space-between;
-	align-items: flex-end;
-	height: 100px;
-	width: 100%;
-	top:0px;
-	position: fixed;
 }
 
 #conteneur{
 	display: flex;
-	justify-content: space-between;
-}
-
-#conteneur2{
-	display: flex;
-	justify-content: start;
+	flex-direction: row;
+	height: 7.3vw;
 }
 
 .logo{
-	float: left;
 	height: 7.2vw;
 	width: 8vw;
 }
 
-.nom h1{
-    float: left;
-	vertical-align: middle;
-    width: 40%;
-    height: 75px;
-    border: none;
-    color: white; 
+.nom{
+	font-size: 2.5vw;
+	font-weight: bold;
+	width: 8vw;
+	padding-top: 0.7vw;
+	padding-left: 0.5vw;
 }
 
-nav ul
-{
+nav ul{
 	list-style-type: none;
 	display: flex;
+	margin: 0;
 }
 
-nav li
-{
-	margin-right: 50px;
-	margin-bottom: 30px; 
+nav li{
+	margin-right: 5vw;
+	margin-top: 2.3vw; 
 }
 
-nav a
-{
+nav a{
 	color: white;
 	font-weight: bold;
+	text-decoration: none;
+	font-size: 1.7vw;
 }
 
-nav a:hover
-{
+nav a:hover{
 	color: #FF3A40;
+}
+
+
+
+@media screen and (max-width: 1024px){
+
+	.nom{
+		padding-top: 1vw;
+		font-size: 4vw;
+		width: 40vw;
+	}
+
+	nav a{
+		font-size: 1.4vw;
+	}
 }
 
 
@@ -109,7 +98,7 @@ nav a:hover
 /************************************************/
 .box
 {
-	padding-top: 200px;
+	padding-top: 10vw;
 }
 
 #box_connexion
@@ -239,7 +228,7 @@ h1{
 
 .paysage_urbain
 {
-	background: url(paysage_urbain.jpg) no-repeat;
+	background: url(Images/paysage_urbain.jpg) no-repeat;
 	height: 300px;
 	position: relative;
 	margin-top: -5%;
