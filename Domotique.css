@@ -85,6 +85,10 @@ nav a:hover{
 	nav a{
 		font-size: 1.4vw;
 	}
+	
+	.head2 li{
+		margin-top: 1vw;
+	}
 }
 
 
