@@ -2,19 +2,19 @@
 <html>
     <head>
         <meta charset="utf-8" />
-        <link rel="stylesheet" href="Styles/domotique.css">
-		<title>G7Enterprise</title>
+        <link rel="stylesheet" href="/APP/Style/Domotique.css">
+		<title>Domisep</title>
     </head>
 
 <body>
 	
-	<?php include'header1.php';?>
+	<?php include'Header1.php';?>
 
 	<div id="banniere_box">
 		<div class="banniere_description">
 			<p>Contrôlez votre maison à distance</br></br></p>
 			<div>
-				<a href="Domotique.php" class="acheter">EQUIPER</a>
+				<a href="/APP/Controleur/Domotique.php" class="acheter">EQUIPER</a>
 			</div>
 		</div>		
 	</div>
@@ -29,14 +29,14 @@
 					</div>
 
 					<div>
-						<img src="photoSite/maisonvrai4.png" class="logo2">
+						<img src="/APP/Image/logo.png" class="logo2">
 					</div>
 				</div>
 				
 
 				<div id="sous-contenu">
 					<div>
-						<img src="photoSite/electrique.jpg" class="photo1">
+						<img src="/APP/Image/electrique.jpg" class="photo1">
 					</div>
 
 					<div class="description">
@@ -55,17 +55,17 @@
 			<div id="contenu2">
 				<div class="description2">
 					<h1 class="cyan">Une startup en plein essor</h1>
-					<p>En association avec le nouvel incubateur de l'ISEP, G7Enterprise a pu lever plus de 2,5 million d'euros afin de mener à bien leur projet. Cette jeune startup est prête à équiper des millions de foyer en France et dans l'Europe entière.</p>
+					<p>En association avec le nouvel incubateur de l'ISEP, G7Enterprise a pu lever plus de 2,5 million d'euros afin de mener à bien son projet. Cette jeune startup est prête à équiper des millions de foyers en France et dans l'Europe entière.</p>
 				</div>
 
 				<div>
-					<img src="photoSite/salon1.jpg" class="photo2">
+					<img src="/APP/Image/salon1.jpg" class="photo2">
 				</div>
 			</div>
 		</aside>
 	</section>
 
-	<?php include'footer.php' ?>
+	<?php include'Footer.php' ?>
 </body>
 
 </html>

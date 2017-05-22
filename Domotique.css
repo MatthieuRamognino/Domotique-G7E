@@ -3,15 +3,14 @@ body {
     padding:0;
     font-family: verdana;
 }
-
 body:before {
         content: "";
         position: fixed;
         height: 100%; width: 100%;
-        background: url('Image/house.jpg');
-        background-size: cover; 
+        background-image: url(/APP/Image/house.jpg);
+        background-size: cover;
         z-index: -1;
-        -webkit-opacity :0.6;
+        -webkit-opacity :0.8;
     }
 
 
@@ -19,7 +18,6 @@ body:before {
 /****************************************************/
 /*DEBUT HEADER1-2*/
 /****************************************************/
-
 header
 {
 	background-color: rgba(0, 0, 0, 0.5);
@@ -33,7 +31,7 @@ header
 
 #conteneur{
 	display: flex;
-	flex-direction: row;
+	
 	height: 7.3vw;
 }
 
@@ -48,31 +46,73 @@ header
 	width: 8vw;
 	padding-top: 0.7vw;
 	padding-left: 0.5vw;
+	color: #FF3A40; 
 }
 
 nav ul{
 	list-style-type: none;
 	display: flex;
 	margin: 0;
+	padding: 0;
+	overflow: hidden;
 }
 
 nav li{
 	margin-right: 5vw;
-	margin-top: 2.3vw; 
+	margin-top: 2.3vw;
 }
 
 nav a{
 	color: white;
+	text-align: center;
 	font-weight: bold;
 	text-decoration: none;
-	font-size: 1.7vw;
+	font-size: 1.5vw;
 }
 
 nav a:hover{
 	color: #FF3A40;
 }
 
+.dropdown {
+    display: inline-block;
+}
 
+#pres{
+	padding-left:4vw;
+	width:9vw; 
+}
+
+.dropdown-content {
+    display: none;
+    background-color: #f9f9f9;
+    width:8.7vw;
+    min-width: 100px;
+
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    font-size: 1vw;
+}
+
+
+.dropdown-content a:hover {background-color: #f1f1f1}
+
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.rechercher
+{	
+	margin-top: 25px;
+}
 
 @media screen and (max-width: 1024px){
 
@@ -89,8 +129,11 @@ nav a:hover{
 	.head2 li{
 		margin-top: 1vw;
 	}
-}
 
+	.rechercher{
+		display: none;
+	}
+}
 
 /****************************************************/
 /*FIN HEADER2*/
@@ -102,14 +145,16 @@ nav a:hover{
 /************************************************/
 .box
 {
-	padding-top: 10vw;
+	padding-top: 5%;
+	display: flex;
+	justify-content: space-between;
 }
 
 #box_connexion
 {
 	border: 2px solid #383176;
 	width: 30%;
-	padding: 5%;
+	padding: 2.5%;
 	margin: auto;
 	border-radius: 10px;
 	background-color: #F0F3F4;
@@ -118,12 +163,15 @@ nav a:hover{
 #box_connexion h1
 {
 	text-align: center;
+
 	font-size: 30px;
 	color: #383176;
+
 }
 
 .formulaire_connexion
 {
+	 
 	color: #383176;
 }
 
@@ -131,6 +179,56 @@ nav a:hover{
 {
 	text-align: center;
 	color: #FF3A40;
+}
+
+input[type=text]
+{
+	width: 9vw;
+	box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    background-color: white;
+    padding: 5px;
+}
+
+input[type=submit]{
+	background-color: #FF3A40;
+	border-radius: 5px;
+	border: none;
+	color: white;
+	padding: 8px 16px;
+	cursor: pointer;
+	font-size: 16px;
+}
+
+input[type=email]{
+	width: 20vw;
+	box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    background-color: white;
+    padding: 5px;
+}
+
+input[type=password]{
+	width: 10vw;
+	box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    background-color: white;
+    padding: 5px;
+}
+
+input[type=date]{
+	width: 11vw;
+	box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    background-color: white;
 }
 /************************************************/
 /*FIN ACCUEIL*/
@@ -232,7 +330,7 @@ h1{
 
 .paysage_urbain
 {
-	background: url(Images/paysage_urbain.jpg) no-repeat;
+	background: url(paysage_urbain.jpg) no-repeat;
 	height: 300px;
 	position: relative;
 	margin-top: -5%;
@@ -326,7 +424,7 @@ h1{
 .description3{
 	width: 75%;
 	text-align: center;
-	color: #383176; /*Bleu*/
+	color: white;
 	font-size: 20px;
 	margin-top: 200px;
 }
@@ -337,16 +435,19 @@ h1{
 }
 
 .equiper{
-	color: #383176;
+	color: white;
+	background-color: #383176;
+	border: none;
 	font-size: 20px;
-	border: 2px solid #383176; /*bleu*/
 	border-radius: 5px;
 	padding: 20px;
+	text-decoration: none;
+	transition-duration: 0.4s;
+	cursor: pointer;
 }
 
 .equiper:hover
 {
-	border-color: white;
 	background-color: white;
 	color: #FF3A40; 				/*Saumon*/
 }
@@ -397,49 +498,85 @@ h1{
 /************************************************/
 /*MON DOMICILE*/
 /************************************************/
-#domicile
-{
-	padding-top: 200px;
+#secDom {
+	display: flex;
+	flex: wrap;
 }
 
-#piece
+.monDomicile{
+	width: 18vw;
+	background-color: rgba(0, 0, 0, 0.8);
+	height: 9vw;
+}
+
+.artDom {
+	width: 100%;
+}
+
+.monDomicile h1{
+	color: white;
+	padding-left: 4vw;
+	font-size: 1.4vw;
+	margin: 0;
+	padding: 0;
+	padding-left: 0.2vw;
+}
+
+.monDomicile ul {
+    list-style-type: none;
+    font-size: 1.2vw;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    background-color: #f1f1f1;
+}
+
+.monDomicile li a {
+    display: block;
+    color: #000;
+    padding: 8px 16px;
+    text-decoration: none;
+}
+
+/* Change the link color on hover */
+.monDomicile li a:hover {
+    background-color: #555;
+    color: white;
+}
+
+
+#domi
+{
+	
+	margin: 2vw;
+	
+}
+
+#domi h2
+{
+	color: #76D7C4;
+	text-shadow:0 0 9px black;
+ 	
+}
+
+.piece
 {
 	display: flex;
-	flex-direction: column;
-	width: auto;
-	height: auto;
+	justify-content: space-around;
+	flex-wrap: wrap;
+	padding: 15px;
 	border: 2px solid black;
-	margin: auto;
-	margin-bottom: 10%;
-	padding: 2.5%;
-	border-radius: 10px;
+	background-color: white;
+	padding-right:30px;
+	border-radius: 1vw;
+	margin-bottom: 6vw;
 }
 
-#ligne
-{
-	display: flex;
-	justify-content: space-between;
-	padding-right: 50px;
-	margin: auto;
-	margin-bottom: 50px;
-}
-
-#capteur
-{
-
-	padding-right: 100px;	
-}
-
-#capteur h3
+.capteur h3
 {
 	text-align: center;
 	vertical-align: middle;
-}
-
-#capteur ul
-{
-	align-content: center;
-	text-align: center;
+	width: 150px; 
 }
 
 .description_capteur
@@ -451,45 +588,181 @@ h1{
 {
 	height: 40px;
 	width: 40px;
+	margin-left:30px;
+}
+
+.detecteurfumee{
+	height: 54px;
+	width: 54px;
+	margin-left:30px;
+}
+
+.capteurpresence{
+	height: 54px;
+	width: 54px;
+	margin-left:30px;
+}
+
+.capteurco2{
+	height: 54px;
+	width: 54px;
+	margin-left:30px;
 }
 
 .luminosite
 {
 	height: 40px;
 	width: 40px;
+	margin-left:54px;
 }
 
 .humidite
 {
 	height: 40px;
 	width: 40px;
+	margin-left:30px;
+
+}
+
+.range{
+	width: 100px;
+	margin-left: 24px;
 }
 /************************************************/
 /*FIN MON DOMICILE*/
+/************************************************/
+
+/************************************************/
+/*Contact*/
+/************************************************/
+#contact-box
+{
+	padding-top: 10%;
+	display: flex;
+	flex-direction: column;
+}
+
+#contact-box h1
+{
+	text-align: center;
+	color: #FF3A40;
+}
+
+#contact{
+	display: flex;
+	justify-content: space-around;
+	list-style: none;
+	background-color : #383176;
+	padding: 2.5%;
+	margin-top: 10%;
+}
+
+.b1
+{
+    text-align: center;
+    width: 30%;
+    color: white;
+}
+
+.b1 h3
+{
+	text-align: center;
+	padding-bottom: 5%;
+	color:  #F4D03F;
+	font-weight: lighter;
+	font-size: 1.5em;
+}
+
+.b1 a
+{
+	text-decoration: none;
+	color: #FF3A40;
+	font-size: 1.5em;
+}
+
+.b1 ul
+{
+	list-style: none;
+	text-align: left;
+	color: #FF3A40;
+	font-size: 1em;
+}
+
+#team
+{
+	background-color: #F1C40F;
+}
+
+.tête
+{
+	padding-top: 5%;
+	display: flex;
+	justify-content: space-around;
+	flex-wrap: wrap;
+}
+
+.tête img
+{
+	height: 200px;
+	width: 200px;
+	margin-right: 5%;
+	margin-left: 5%;
+	margin-bottom: 5%;
+}
+
+figcaption
+{
+	font-size: 0.8em;
+	text-align: center;
+	color: grey;
+}
+
+/************************************************/
+/*FIN CONTACT*/
 /************************************************/
 
 
 /************************************************/
 /*Footer*/
 /************************************************/
-#conteneurFooter{
+footer{
 	display: flex;
-	justify-content: space-between;
 	background-color: #566573;
+	justify-content: space-around;
 	margin-top: 20%;
+	padding-bottom: 2.5%;
 }
 
-.copyright{
-	font-size: 15px;
-	margin:auto;
-
+footer p, ul{
+	font-size: 0.9em;
 }
 
-.contact{
-	font-size: 15px;
-	margin-top: 2.5%;
-	margin-bottom: 2.5%;
-	padding-right: 25%;
+footer h1{
+	font-size: 1.2em;
+}
+
+#copyright{
+	width: 30%;
+}
+
+#tweet{
+	width: 30%;
+}
+
+#tweet img{
+	height: 40px;
+	width: 40px;
+	padding-right: 20px;
+}
+
+#propos{
+	width: 25%;
+	margin-bottom: 0;
+}
+
+#propos a{
+	text-decoration: none;
+	color: black;
 }
 
 

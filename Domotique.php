@@ -1,79 +1,103 @@
+<?php session_start(); ?>
+
 <!DOCTYPE html>
 <html>
     <head>
         <meta charset="utf-8" />
-        <link rel="stylesheet" href="Styles/domotique1.css">
-		<title>G7Entreprise</title>
+        <link rel="stylesheet" href="/APP/Style/Domotique.css">
+		<title>Domisep</title>
     </head>
 
 <body>
-	<?php include'header1.php';?>
+	<?php include'/Applications/XAMPP/xamppfiles/htdocs/APP/Vue/Header1.php';?>
 
 	<section>
 		<aside class="box">
 			<div id="box_connexion">
 				<h1>Se connecter</h1>
 				<div class="formulaire_connexion">
+				<?php if(isset($_GET['cible']) AND $_GET['cible']=='echoue'){
+					echo 'mots de passe ou indentifiant incorrect';
+				}else if(isset($_GET['cible']) AND $_GET['cible']=='deconnecter'){
+					echo 'Deconnection validée';
+				}else if(isset($_GET['cible']) AND $_GET['cible']=='nonConnecter'){
+					echo 'Connectez-vous';
+				}
+				?>
 					<br/>
-					<form method="POST" action="monDomicile.php">
-						<p>
-							<label for="email">E-mail :</label>
-							<input type="email" name="email" id="email" />
-
-							<br />
-							<br />
-							<label for="pass">Mot de passe :</label>
-							<input type="password" name="pass" id="pass" />
-
-							<br />
-							<br />
-							<input type="submit" value="Se connecter" />
-						</p>
+					<form method="POST" action="Connexion.php?cible=verif">
+						<table>
+							   <tr>
+							       <td><label for="email">E-mail :</label></td>
+							       <td><input type="email" name="email" id="email" /></td>
+							   </tr>
+							   <tr>
+							       <td><label for="pass">Mot de passe :</label></td>
+							       <td><input type="password" name="pass" id="pass" /></td>
+							   </tr>
+							    <tr>
+							       <td><input type="submit" value="Se connecter" /></td>
+							   </tr>
+							</table>
 					</form>
 				</div>
 			</div>
 
 			<div id="box_connexion">
 				<h1>S'inscrire</h1>
+				<?php if(isset($_GET['cible']) AND $_GET['cible']=='inscriptionrate'){
+					echo 'inscription raté';
+				}?>
 				<div class="formulaire_connexion">
-					<br/>
-					<form method="POST" action="monDomicile.php">
-						<p>	
-							<label for="nom">Nom : </label><input type="text" name="nom">
-
-							<br/>
-							<br/>
-							<label for="prenom">Prénom : </label><input type="text" name="prenom">
-
-							<br/>
-							<br/>
-							<label for="Adresse">Adresse : </label><input type="text" name="adresse" id="rue" placeholder="Rue" />
-							<input type="text" name="ville" placeholder="ville" />
-							<input type="text" name="codePostal" placeholder="Code postal" />
-
-							<br/>
-							<br/>
-							<label for="date_de_naissance">Date de naissance : </label><input type="date" name="date" />
-
-							<br/>
-							<br/>
-							<label for="email">E-mail : </label><input type="email" name="email" id="email" />
-
-							<br/>
-							<br/>
-							<label for="pass">Mot de passe : </label><input type="password" name="pass" id="pass" />
-
-							<br/>
-							<br/>
-							<input type="submit" value="S'inscrire" />
-						</p>
+					<form method="POST" action="Connexion.php?cible=inscrire">
+							<table>
+							    <tr>
+							        <td><label for="nom">Nom : </label></td>
+							        <td><input type="text" name="nom"></td>
+							    </tr>
+							    <tr>
+							        <td><label for="prenom">Prénom : </label></td>
+							        <td><input type="text" name="prenom"></td>
+							    </tr>
+							    <tr>
+							        <td><label for="email">E-mail : </label></td>
+							        <td><input type="email" name="email" id="email" /></td>
+							    </tr>
+							    <tr>
+							   	    <td><label for="Adresse">Adresse : </label></td>
+							        <td><input type="text" name="adresse" id="rue" placeholder="Rue" /></td>
+							    </tr>
+							    <tr>
+							        <td></td>
+							        <td><input type=text required name="codePostal" placeholder="Code postal" /><input type="text" name="ville" placeholder="ville" /></td>
+							    </tr>
+							    <tr>
+							    	<td></td>
+							        <td><input type="text" name="pays" placeholder="France" /></td>
+							    </tr>
+							    <tr>
+							        <td><label for="date_de_naissance">Date de naissance : </label></td>
+							        <td><input type="date" name="date" placeholder="1995/07/26" /></td>
+							    </tr>
+							    <tr>
+							        <td><label for="Tel">Numéro de Télephone : </label></td>
+							        <td><input type="text" name="Tel" id="Tel" placeholder="06000000" /></td>
+							    </tr>
+							    <tr>
+							        <td><label for="pass">Mot de passe : </label></td>
+							        <td><input type="password" name="pass" id="pass" /></td>
+							    </tr>
+							    <tr>
+							       <td><input type="submit" value="S'inscrire" /></td>
+							   </tr>
+							</table>
 					</form>
 				</div>
 			</div>
 		</aside>
 	</section>
 
-	<?php include 'footer.php' ?>
+	<?php include '/Applications/XAMPP/xamppfiles/htdocs/APP/Vue/Footer.php' ?>
 
 </body>
 

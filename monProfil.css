@@ -1,0 +1,74 @@
+body {
+    margin:0;
+    padding:0;
+    font-family: verdana;
+}
+body:before {
+    content: "";
+    position: fixed;
+    height: 100%; width: 100%;
+    background-image: url(house.jpg);
+    background-size: cover;
+    z-index: -1;
+    -webkit-opacity :0.6;
+}
+
+#profil{
+	display: flex;
+	justify-content: center;
+	margin-bottom: 10%;
+}
+
+.description_profil{
+	width: 75%;
+	text-align: center;
+	margin-top: 200px;
+}
+
+.description_profil h1
+{
+	color: #FF5151;
+}
+
+.description_profil p{
+	font-size: 0.6em;
+	color: black;
+	border: 1px solid black;
+	background-color: #F0F3F4;
+	border-radius: 10px;
+	padding: 2.5%;
+}
+
+.equiper{
+	margin-right: 20px;
+}
+
+#informations{
+	display: flex;
+	justify-content: space-around;
+}
+
+#informations h2{
+	color: #2874A6;
+}
+
+.description_informations{
+	width: 40%;
+	margin-left: 5%;
+	border: 1px solid black ;
+	border-radius: 10px;
+	background-color: #F0F3F4;
+}
+
+.description_informations h2{
+	text-align: center;
+}
+
+.description_informations p{
+	padding-left: 20px;
+}
+
+.form
+{
+	padding: 20px;
+}
