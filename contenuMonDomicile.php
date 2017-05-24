@@ -8,21 +8,18 @@
 			<li><a href="">Par pièce</a></li>
 			<li><a href="">Consigne</a></li>
 			<li><a href="index.php?cible=monDomicile&dom=ajouteCapteur">Ajouter capteur</a></li>
-			<li><a href="MonDomicile.php?cible=supprimeCapteur">Supprimer capteur</a></li>
-			<li><a href="MonDomicile.php?cible=ajoutePiece">Ajouter pièce</a></li>
-			<li><a href="MonDomicile.php?cible=supprimePiece">Supprimer piece</a></li>
+			<li><a href="index.php?cible=monDomicile&dom=supprimeCapteur">Supprimer capteur</a></li>
+			<li><a href="index.php?cible=monDomicile&dom=ajoutePiece">Ajouter pièce</a></li>
+			<li><a href="index.php?cible=monDomicile&dom=supprimePiece">Supprimer piece</a></li>
 			<li><a href="#">Ajouter domicile</a></li>
 		</ul>
 	</aside>
 
 	<article class="artDom">
 	<div id=divers>
-	<?php if(isset($_GET['cible']) AND $_GET['cible']=='inscriptionvalide'){
-		echo 'insciption validée';
-	}else if(isset($_GET['cible']) AND $_GET['cible']=='ajoutePiece'){
-		include('/Applications/XAMPP/xamppfiles/htdocs/APP/Modele/variable.php');
+	<?php if(isset($_GET['dom']) AND $_GET['dom']=='ajoutePiece'){
 		?>
-	<form method="POST" action="/APP/Controleur/Connexion.php?cible=ajoutePiece">
+	<form method="POST" action="index.php?cible=monDomicile&dom=ajouterPiece">
 		<input type="text" name="nomPiece" placeholder="salon" />
 		<input type="submit" value="Ajouter" />
 	</form>
@@ -54,9 +51,9 @@
 			<input type="submit" value="Ajouter" />
 		</form>
 		<?php
-	}else if(isset($_GET['cible']) AND $_GET['cible']=='supprimeCapteur'){
+	}else if(isset($_GET['dom']) AND $_GET['dom']=='supprimeCapteur'){
 				echo "Cliquer sur le capteur à supprimer";
-	}else if(isset($_GET['cible']) AND $_GET['cible']=='supprimePiece'){
+	}else if(isset($_GET['dom']) AND $_GET['dom']=='supprimePiece'){
 		echo "Cliquer sur la piece à supprimer";
 
 	}?>
@@ -81,14 +78,16 @@ for ($i = 0; $i <$tr ; $i++) {?>
 		<?php
 
 		include('/Applications/XAMPP/xamppfiles/htdocs/APP/Modele/BDD.php');
-		$reponse = $bdd->query('SELECT * FROM Capteurs WHERE IdPiece="'.$_SESSION["idPiece"][$i].'"');
 
+		$reponse=capteur($bdd,$_SESSION["idPiece"][$i]);
 		
 		foreach  ($reponse as $row) {
 			$Capteur[$j]=$row['Nom'];
 			$id=$row['IdCapteur'];
 			$donne="N/A";
-			$valeurs = $bdd->query('SELECT * FROM Donnees WHERE IdCapteur="'.$id.'"');
+			
+			$valeurs = donnee($bdd,$id);
+			
 			foreach  ($valeurs as $rows) {
 				$donne=$rows['Donnee'];
 			}
@@ -110,7 +109,7 @@ for ($i = 0; $i <$tr ; $i++) {?>
 
 
 
-if(isset($_GET['cible']) AND $_GET['cible']=='supprimeCapteur'){?>
+if(isset($_GET['dom']) AND $_GET['dom']=='supprimeCapteur'){?>
 	<script type="text/javascript">
 	var a = document.getElementsByClassName('capteur').length;
 	for (var i = 0; i < a; i++) {
@@ -119,7 +118,7 @@ if(isset($_GET['cible']) AND $_GET['cible']=='supprimeCapteur'){?>
 	</script>
 <?php }
 
-if(isset($_GET['cible']) AND $_GET['cible']=='supprimePiece'){?>
+if(isset($_GET['dom']) AND $_GET['dom']=='supprimePiece'){?>
 	<script type="text/javascript">
 	var a = document.getElementsByClassName('piece').length;
 	for (var i = 0; i < a; i++) {
